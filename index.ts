@@ -1,3 +1,8 @@
+// Polyfills the Stellar SDK needs on React Native: secure random bytes and Buffer.
+import 'react-native-get-random-values';
+import { Buffer } from 'buffer';
+(globalThis as any).Buffer = (globalThis as any).Buffer ?? Buffer;
+
 import { registerRootComponent } from 'expo';
 
 import App from './App';
