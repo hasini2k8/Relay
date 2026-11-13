@@ -9,6 +9,7 @@ import { Home } from './src/screens/Home';
 import { Send } from './src/screens/Send';
 import { Claim, Receive, Settings } from './src/screens/Other';
 import { CashOut } from './src/screens/CashOut';
+import { CreatePot, PotView, Propose, ProposalView } from './src/screens/Pots';
 
 function Router() {
   const { ready, route } = useApp();
@@ -33,6 +34,14 @@ function Router() {
       return <Claim key={route.code ?? 'manual'} code={route.code} />;
     case 'settings':
       return <Settings />;
+    case 'createPot':
+      return <CreatePot />;
+    case 'pot':
+      return <PotView key={route.id} id={route.id} />;
+    case 'propose':
+      return <Propose potId={route.potId} />;
+    case 'proposal':
+      return <ProposalView key={route.xdr.slice(0, 120)} xdr={route.xdr} />;
     case 'anchor':
       return <CashOut key={route.resumeId ?? route.kind} kind={route.kind} resumeId={route.resumeId} />;
   }

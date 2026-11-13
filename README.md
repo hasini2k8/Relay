@@ -1,8 +1,10 @@
-# RELAY: money that always finds its way home
+# RELAY: Family Care Pots for parents back home
 
-A mobile wallet (iOS, Android, web) for sending money to family, built on the **Stellar** network. Every payment is a real Stellar transaction. Nothing is simulated.
+A mobile wallet (iOS, Android, web) on the **Stellar** network for brothers and sisters living in different countries who share the cost of caring for their parents in India. Every payment is a real Stellar transaction. Nothing is simulated.
 
-**What makes it different:** *Scam Shield*. Payments to someone new wait in a safety hold that the Stellar network itself enforces: the recipient can't take the money until the hold ends, and you can take it back any time until they do. No company or support ticket is involved. A plain-language check in Hindi or English lengthens the hold if anything looks like a scam. See **[REPORT.md](REPORT.md)** for the comparison with Remitly, Western Union, Wise, banks/UPI, Valora and LOBSTR.
+**The niche: Family Care Pot.** Siblings in Toronto, Dubai and London pay into one pot for Amma. **No one can spend it alone:** every payment out (medicine, hospital, rent) needs the number of family approvals they agreed on, such as 2 of 3, and the Stellar network enforces that rule. Everyone sees who paid in, what was spent, on what, and who approved it, so there are no more "who paid for what" arguments, and no single person (or scammer) can drain the parents' money. A request travels as a link on WhatsApp; the second approval pays the pharmacy directly.
+
+**Also built in:** *Scam Shield*. Payments to someone new wait in a safety hold that the Stellar network itself enforces: the recipient can't take the money until the hold ends, and you can take it back any time until they do. No company or support ticket is involved. A plain-language check in Hindi or English lengthens the hold if anything looks like a scam. See **[REPORT.md](REPORT.md)** for the comparison with Remitly, Western Union, Wise, banks/UPI, Valora and LOBSTR.
 
 **Live (Stellar testnet):** [hasini2k8.github.io/Relay](https://hasini2k8.github.io/Relay/) · [relay-wallet.vercel.app](https://relay-wallet.vercel.app)
 
@@ -20,6 +22,7 @@ People sending money home, such as migrant workers, students and caregivers, run
 
 | Problem | RELAY | Stellar feature that enforces it |
 |---|---|---|
+| Siblings abroad share a parent's costs; it is unclear who paid what, and one person (or a scammer talking to them) can misuse the money | **Family Care Pot.** One shared pot; payments out need *M of N* family approvals; contributions, spending, purposes and approvers are visible to everyone; bills can go straight to a pharmacy or hospital | Multisig account: each member is a signer, the pot's own key is disabled (master weight 0), and all thresholds equal *M*. Names are stored on-chain (manageData); pots are found with `accounts?signer=`; requests are signed transactions shared as links |
 | Money sent to the wrong person is lost | **Protected send.** The money waits for the recipient to accept it. Until they do, the sender can **take it back** with one tap. After 30 days only the sender can claim it. | Claimable balances with predicates: the recipient can claim *before* the deadline, and the sender can always claim. The network enforces this, not a RELAY server. |
 | Recipient has no wallet or bank app | **Claim code.** The sender gets a link, QR code and code to share by WhatsApp or SMS. Opening it creates the recipient's wallet with the money already in it. The sender can still take it back until it is claimed. | A new account is created and funded in one transaction, with the sender added as a co-signer. Claiming removes the sender's signature, so only the recipient controls the money. |
 | High fees, slow transfers | The network fee is 0.00001 XLM (a tiny fraction of a cent). Payments settle in about 5 seconds. | Stellar consensus |
@@ -60,6 +63,7 @@ node scripts/e2e-testnet.ts
 ```bash
 node scripts/anchor-testnet.ts
 node scripts/scam-shield-testnet.ts
+node scripts/pot-testnet.ts
 ```
 Against the live testnet anchor, this checks discovery, SEP-10 sign-in, rejection of a challenge signed by the wrong key, and starting both a deposit and a withdrawal.
 
@@ -70,6 +74,8 @@ The first script creates fresh testnet wallets and runs every flow against the l
 | File | What it does |
 |---|---|
 | `src/stellar.ts` | All Stellar logic: wallet, protected send, claim and take-back, claim codes, history, error messages in plain words |
+| `src/pot.ts` | Family Care Pot: create a multisig pot, contribute, propose / approve / submit spending, ledger of contributions and approvals |
+| `src/screens/Pots.tsx` | Pot screens: create, pot view, ask to pay, approve from a link |
 | `src/anchor.ts` | Anchor client: stellar.toml discovery, SEP-10 challenge check and signing, SEP-24 start and status |
 | `src/screens/CashOut.tsx` | Cash out / add money: amount → anchor page → confirm send → processing → done, resumable |
 | `src/state.tsx` | Wallet, settings, contacts, outstanding claim codes, 15-second refresh, deep links (`relay://claim?code=…`, `/?claim=…`) |

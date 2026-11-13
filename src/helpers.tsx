@@ -37,6 +37,12 @@ export function claimLink(code: string) {
   return `relay://claim?code=${code}`;
 }
 
+export function proposalLink(xdr: string) {
+  const x = encodeURIComponent(xdr);
+  if (Platform.OS === 'web' && typeof window !== 'undefined') return `${window.location.origin}${window.location.pathname}?proposal=${x}`;
+  return `relay://proposal?x=${x}`;
+}
+
 /** Accepts a bare claim code or any link that carries one. */
 export function parseCode(input: string) {
   const s = input.trim();

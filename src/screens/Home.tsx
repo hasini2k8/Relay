@@ -7,6 +7,7 @@ import { useApp } from '../state';
 import { speechLang } from '../i18n';
 import { fiat, xlm } from '../price';
 import { Button, C, Card, IconButton, Notice, Screen, Txt } from '../ui';
+import { PotsCard } from './Pots';
 import { claimLink, confirm, openUrl, shareText, useBusy } from '../helpers';
 
 export function Home() {
@@ -87,6 +88,8 @@ export function Home() {
         <Button style={{ flex: 1, minWidth: 150 }} label={t('receive')} icon="qr-code" kind="secondary" onPress={() => go({ name: 'receive' })} />
         <Button style={{ flex: 1, minWidth: 150 }} label={t('claimCode')} icon="gift" kind="secondary" onPress={() => go({ name: 'claim' })} />
       </View>
+
+      {wallet?.exists ? <PotsCard /> : null}
 
       <Button label={t('cashOut')} hint={t('cashOutHint')} icon="business" kind="secondary" onPress={() => go({ name: 'anchor', kind: 'withdraw' })} disabled={!wallet?.exists} />
 

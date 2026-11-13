@@ -2,6 +2,45 @@
 
 *Report, November 2026. RELAY runs on the Stellar test network. Every claim marked "tested" was checked with live transactions (`scripts/*.ts`) and in the app.*
 
+## 0. The niche: Family Care Pot
+
+**Who it is for:** brothers and sisters who live in different countries and share the cost of caring for a parent in India. A typical family has one sibling in Toronto, one in Dubai and one in London, with Amma at home in Pune.
+
+**The problem today:**
+- Each sibling sends money separately, so nobody has one picture of what was paid, by whom, and for what. Elder-care guides for NRI families recommend keeping a written role map and a shared care log so money stays visible to every sibling ([Samarth](https://care.samarth.community/?p=131462)), which shows the gap in the tools families have.
+- Whoever holds the money can spend it alone, and so can anyone who talks them into it.
+- Existing "shared money" products don't fit a family spread across countries:
+  - NRI joint accounts: the resident joint holder can operate the account only if the NRI holder dies ([ICICI](https://www.icici.bank.in/nri-banking/nriedge/nri-articles/managing-your-familys-banking-and-financial-needs-while-you-are-abroad)).
+  - Revolut joint accounts: two people at most, and both must be registered in the same country ([Revolut terms](https://www.revolut.com/legal/joint-accounts/)).
+  - Revolut Group Vaults: support more people but are not bank accounts you can pay from ([Fintech Compass](https://fintechcompass.net/personal-bank-accounts/revolut/revolut-joint-accounts/)).
+  - Splitwise-style apps: only track who owes whom; they don't hold or move money.
+
+**What RELAY does:**
+1. **One pot, many countries.** Any number of family members, wherever they live, are co-owners of one Stellar account.
+2. **No one spends alone.** The family chooses the rule, for example *2 of 3 must approve*. The pot's own key is disabled, so the network rejects any payment without that many member signatures.
+3. **Every rupee visible.** The app reads the ledger straight from Stellar: who paid in and how much, every payment out with its purpose ("Medicine"), the payee, and exactly who approved it.
+4. **Pay the provider directly.** Money can go straight to a pharmacy or hospital wallet, even one that has no wallet yet, instead of passing through a person.
+5. **Approval by WhatsApp link.** A request is a signed Stellar transaction shared as a link or QR code. Each sibling opens it, sees the amount, payee, purpose and approvals so far, and adds a signature. The approval that completes the count pays it immediately.
+6. **No server.** Pot names and member names are stored on the account itself, and each member's app finds its pots on the network (`accounts?signer=`).
+
+> **We found no remittance or family-finance product that lets relatives in different countries pool money for a parent in one fund, require an agreed number of family approvals for every payment out (enforced by the payment network, not by a company), and show every contribution, purpose and approver to the whole family.**
+
+**Tested on live testnet (`scripts/pot-testnet.ts`, all passing):**
+- Created a 2-of-3 pot, "Amma's care", for Priya (Toronto), Arjun (Dubai) and Meera (London). The names are stored on-chain, and Meera found the pot from the network alone.
+- Priya put in 300 XLM and Arjun put in 250.
+- Priya asked to pay 120 XLM to a pharmacy for "Amma BP medicine Nov". **With only her signature, the network rejected the payment.**
+- Arjun approved, and the payment went through immediately. The pharmacy, which had no wallet before, received 120 XLM.
+- The following were all refused:
+  - an outsider trying to approve;
+  - a request that went out of date because another payment went first;
+  - a corrupted link;
+  - a request built by an outsider, which showed 0 family approvals and was rejected by the network.
+- The ledger showed: Priya 300, Arjun 250, Meera 0. It listed two payments out, and the medicine payment was marked "approved by Priya + Arjun".
+
+**Tested in the app:** I created the pot, added 300 XLM, and requested 80 XLM to "Apollo Pharmacy" for "Medicine" (1 of 2 approvals). I then opened the link as Arjun and tapped *Approve and sign*, and the app showed "Paid. 80 XLM went to Apollo Pharmacy." The pharmacy's balance on-chain was exactly 80 XLM. The pot showed "Approved by Priya (Toronto), Arjun (Dubai)".
+
+**Limits of the pot:** requests expire after 7 days. If two requests are made at once, only the first one paid stays valid, and the app asks for a new one. Membership can't be changed after creation yet. On mainnet, paying a pharmacy in rupees still needs a licensed anchor.
+
 ## 1. The problem
 
 Sending money home has three failures that existing apps only partly solve:
@@ -27,7 +66,7 @@ Sending money home has three failures that existing apps only partly solve:
 
 **To be clear:** each building block exists somewhere. Remitly lets you cancel before delivery. Valora reclaims unclaimed links. LOBSTR exposes time-limited claimable balances. Regulators are designing cooling-off periods. RELAY's contribution is putting them together, below.
 
-## 3. What is unique about RELAY
+## 3. Also unique: Scam Shield on every send
 
 > **RELAY is the first remittance app we found that gives an automatic, risk-based cooling-off period on every payment to a new recipient, where the sender keeps an unconditional undo and no company is involved. The Stellar network itself enforces both the hold and the undo.**
 
@@ -61,6 +100,7 @@ In-app test: a 100 XLM payment to a new "Investment Agent" contact, with one red
 
 | Feature | Stellar mechanism | Tested |
 |---|---|---|
+| Family Care Pot: pooled fund, M-of-N approvals, open ledger | Multisig account (master weight 0, thresholds = M), manageData names, signed-transaction links | `pot-testnet.ts`, in-app (two members) |
 | Protected send, take back until received | Claimable balance, sender unconditional | `e2e-testnet.ts`, in-app |
 | Scam Shield safety hold | `and(not(before T), before deadline)` predicate | `scam-shield-testnet.ts`, in-app |
 | Claim code for someone without a wallet | New account with the sender as co-signer, removed on claim | `e2e-testnet.ts`, in-app (two browsers) |
