@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 600" role="img" aria-label="The RELAY app on a phone, showing the family pot with 610 XLM and a request waiting for approval">
+  <defs>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E4D5C"/><stop offset="1" stop-color="#3B2A6B"/></linearGradient>
+    <radialGradient id="gl" cx=".9" cy="0" r=".7"><stop offset="0" stop-color="#F2A33A" stop-opacity=".6"/><stop offset="1" stop-color="#F2A33A" stop-opacity="0"/></radialGradient>
+  </defs>
+  <!-- device -->
+  <rect x="6" y="6" width="288" height="588" rx="44" fill="#1E1B2E"/>
+  <rect x="18" y="18" width="264" height="564" rx="34" fill="#FBF6EF"/>
+  <rect x="112" y="28" width="76" height="20" rx="10" fill="#1E1B2E"/>
+  <g font-family="Plus Jakarta Sans, sans-serif">
+    <text x="36" y="80" font-size="12" font-weight="700" fill="#6B6580">Family Care Pot</text>
+    <text x="36" y="104" font-family="Fraunces, serif" font-size="24" font-weight="600" fill="#1E1B2E">Amma's care</text>
+    <!-- hero card -->
+    <rect x="32" y="120" width="236" height="150" rx="24" fill="url(#hero)"/>
+    <rect x="32" y="120" width="236" height="150" rx="24" fill="url(#gl)"/>
+    <text x="50" y="148" font-size="10" font-weight="800" fill="#fff" opacity=".8" letter-spacing="1.4">IN THE POT</text>
+    <text x="50" y="188" font-family="Fraunces, serif" font-size="36" font-weight="600" fill="#fff">610 XLM</text>
+    <text x="50" y="208" font-size="12" fill="#fff" opacity=".85">about ₹8,290</text>
+    <rect x="50" y="224" width="96" height="30" rx="12" fill="#F2A33A"/>
+    <text x="98" y="244" text-anchor="middle" font-size="11" font-weight="800" fill="#2A1A00">+ Put money in</text>
+    <rect x="152" y="224" width="98" height="30" rx="12" fill="#fff" fill-opacity=".16" stroke="#fff" stroke-opacity=".35"/>
+    <text x="201" y="244" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">✋ Ask to pay</text>
+    <!-- request -->
+    <rect x="32" y="286" width="236" height="96" rx="20" fill="#FFF1D6" stroke="#F3D29A"/>
+    <circle cx="68" cy="334" r="22" fill="none" stroke="#fff" stroke-width="6"/>
+    <circle cx="68" cy="334" r="22" fill="none" stroke="#F2A33A" stroke-width="6" stroke-dasharray="69 138" transform="rotate(-90 68 334)" stroke-linecap="round"/>
+    <text x="68" y="339" text-anchor="middle" font-size="12" font-weight="800" fill="#1E1B2E">1/2</text>
+    <text x="102" y="318" font-size="12.5" font-weight="800" fill="#1E1B2E">🛒 45 XLM → Kirana</text>
+    <text x="102" y="336" font-size="11" fill="#4A4560">Groceries for November</text>
+    <rect x="102" y="346" width="78" height="26" rx="10" fill="#1B6B45"/>
+    <text x="141" y="363" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">✓ Approve</text>
+    <!-- fair share -->
+    <rect x="32" y="396" width="236" height="160" rx="20" fill="#fff" stroke="#E8DFD3"/>
+    <text x="50" y="422" font-size="13" font-weight="800" fill="#1E1B2E">Who has paid in</text>
+    <g font-size="11" font-weight="700" fill="#1E1B2E">
+      <circle cx="60" cy="448" r="11" fill="#0E4D5C"/><text x="60" y="452" text-anchor="middle" fill="#fff" font-size="10">P</text>
+      <text x="80" y="452">Priya</text><text x="250" y="452" text-anchor="end">300</text>
+      <rect x="50" y="462" width="200" height="6" rx="3" fill="#F3ECE2"/><rect x="50" y="462" width="200" height="6" rx="3" fill="#0E4D5C"/>
+      <circle cx="60" cy="490" r="11" fill="#B5452F"/><text x="60" y="494" text-anchor="middle" fill="#fff" font-size="10">A</text>
+      <text x="80" y="494">Arjun</text><text x="250" y="494" text-anchor="end">250</text>
+      <rect x="50" y="504" width="200" height="6" rx="3" fill="#F3ECE2"/><rect x="50" y="504" width="167" height="6" rx="3" fill="#B5452F"/>
+      <circle cx="60" cy="530" r="11" fill="#5A3A8C"/><text x="60" y="534" text-anchor="middle" fill="#fff" font-size="10">M</text>
+      <text x="80" y="534">Meera</text><text x="250" y="534" text-anchor="end">180</text>
+      <rect x="50" y="544" width="200" height="6" rx="3" fill="#F3ECE2"/><rect x="50" y="544" width="120" height="6" rx="3" fill="#5A3A8C"/>
+    </g>
+    <path d="M212 458v100" stroke="#1E1B2E" stroke-width="1.5" opacity=".5"/>
+  </g>
+</svg>

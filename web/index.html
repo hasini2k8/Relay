@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>RELAY · Family Care Pots</title>
+  <meta name="description" content="Siblings abroad pool money for a parent back home. No one can spend it alone. Every payment needs family approval, enforced by the Stellar network." />
+  <meta name="theme-color" content="#0E4D5C" />
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="RELAY" />
+  <meta property="og:title" content="RELAY · Family Care Pots" />
+  <meta property="og:description" content="One pot for Amma. Every sibling. No one spends alone." />
+  <meta property="og:image" content="assets/icon-512.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@stellar/stellar-sdk@13.3.0/dist/stellar-sdk.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+</head>
+<body>
+  <!-- ================= LANDING ================= -->
+  <div id="landing">
+    <nav class="nav" id="nav">
+      <a class="brand" href="#/"><img src="assets/logo.svg" alt="" />RELAY</a>
+      <div class="nav-links">
+        <a href="#problem" data-i18n="nav_problem">The problem</a>
+        <a href="#how" data-i18n="nav_how">How it works</a>
+        <a href="#uses" data-i18n="nav_uses">What it pays for</a>
+        <a href="#trust" data-i18n="nav_safe">Why it's safe</a>
+        <a href="#download" data-i18n="nav_download">Get the app</a>
+      </div>
+      <label class="lang-pick"><span class="sr-only" data-i18n="language">Language</span>
+        <span aria-hidden="true">🌐</span><select data-change="lang" class="lang-select"></select>
+      </label>
+      <a class="btn btn-primary btn-sm" href="#/app" data-i18n="open_app">Open the app</a>
+    </nav>
+
+    <header class="hero" id="main-content">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="pill reveal"><span class="dot"></span><span data-i18n="hero_pill">Live on the Stellar test network</span></span>
+          <h1 class="reveal d1" data-i18n-html="hero_h1">One pot for Amma.<br /><em>Every</em> sibling.<br /><span class="u">No one spends alone.</span></h1>
+          <p class="lead reveal d2" data-i18n="hero_lead"></p>
+          <div class="cta-row reveal d3">
+            <a class="btn btn-accent btn-lg" href="#/app?demo=1">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="6 4 20 12 6 20 6 4" /></svg>
+              <span data-i18n="cta_demo">Try the live demo family</span>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="#/app" data-i18n="cta_start">Start your own pot</a>
+          </div>
+          <div class="trust-row reveal d3">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg><span data-i18n="trust1"></span></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg><span data-i18n="trust2"></span></span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg><span data-i18n="trust3"></span></span>
+          </div>
+        </div>
+
+        <div class="hero-art reveal d2" aria-hidden="true">
+          <svg viewBox="0 0 520 480">
+            <defs>
+              <radialGradient id="hGlow" cx=".5" cy=".7" r=".5"><stop offset="0" stop-color="#F2A33A" stop-opacity=".5" /><stop offset="1" stop-color="#F2A33A" stop-opacity="0" /></radialGradient>
+              <linearGradient id="hRoof" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E5604D" /><stop offset="1" stop-color="#C2452F" /></linearGradient>
+              <linearGradient id="hWall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF8EC" /><stop offset="1" stop-color="#F4DFC2" /></linearGradient>
+              <linearGradient id="hSea" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#DDEEF0" /><stop offset="1" stop-color="#ECE6F7" /></linearGradient>
+              <path id="r1" d="M92 118 Q150 260 250 300" />
+              <path id="r2" d="M260 70 Q300 190 262 296" />
+              <path id="r3" d="M430 118 Q380 260 274 300" />
+            </defs>
+            <circle cx="260" cy="240" r="210" fill="url(#hSea)" />
+            <g fill="none" stroke="#fff" stroke-width="2" opacity=".9">
+              <ellipse cx="260" cy="240" rx="210" ry="80" />
+              <ellipse cx="260" cy="240" rx="120" ry="210" />
+              <ellipse cx="260" cy="240" rx="50" ry="210" />
+              <path d="M50 240 H470" />
+            </g>
+            <g fill="#fff" opacity=".75">
+              <path d="M110 150 q30 -30 70 -10 q20 20 -10 40 q-30 10 -50 0 q-20 -10 -10 -30z" />
+              <path d="M300 120 q40 -20 70 10 q10 30 -30 40 q-40 0 -40 -50z" />
+              <path d="M330 250 q30 -10 40 20 q0 40 -30 50 q-30 -20 -10 -70z" />
+              <path d="M150 300 q30 0 40 30 q-10 40 -40 40 q-20 -40 0 -70z" />
+            </g>
+            <circle cx="260" cy="320" r="150" fill="url(#hGlow)" />
+            <g fill="none" stroke-width="4" stroke-linecap="round">
+              <use href="#r1" class="flow" stroke="#0E4D5C" />
+              <use href="#r2" class="flow" stroke="#B5452F" />
+              <use href="#r3" class="flow" stroke="#5A3A8C" />
+            </g>
+            <g>
+              <circle r="9" fill="#F2A33A" stroke="#C27A12" stroke-width="2" class="coin" opacity="0">
+                <animateMotion dur="3.2s" begin="0s" repeatCount="indefinite"><mpath href="#r1" /></animateMotion>
+                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.85;1" dur="3.2s" begin="0s" repeatCount="indefinite" />
+              </circle>
+              <circle r="9" fill="#F2A33A" stroke="#C27A12" stroke-width="2" class="coin" opacity="0">
+                <animateMotion dur="3.2s" begin="1.05s" repeatCount="indefinite"><mpath href="#r2" /></animateMotion>
+                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.85;1" dur="3.2s" begin="1.05s" repeatCount="indefinite" />
+              </circle>
+              <circle r="9" fill="#F2A33A" stroke="#C27A12" stroke-width="2" class="coin" opacity="0">
+                <animateMotion dur="3.2s" begin="2.1s" repeatCount="indefinite"><mpath href="#r3" /></animateMotion>
+                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.12;0.85;1" dur="3.2s" begin="2.1s" repeatCount="indefinite" />
+              </circle>
+            </g>
+            <g>
+              <ellipse cx="262" cy="398" rx="86" ry="10" fill="#1E1B2E" opacity=".1" />
+              <rect x="200" y="316" width="124" height="80" rx="8" fill="url(#hWall)" stroke="#E2CBA8" stroke-width="1.5" />
+              <path d="M184 322 L262 262 L340 322 Z" fill="url(#hRoof)" />
+              <rect x="248" y="350" width="28" height="46" rx="4" fill="#0E4D5C" />
+              <rect x="214" y="336" width="24" height="20" rx="3" fill="#FDEBD0" stroke="#E2CBA8" />
+              <rect x="286" y="336" width="24" height="20" rx="3" fill="#FDEBD0" stroke="#E2CBA8" />
+              <path class="heartbeat" d="M262 300 c -6 -10 -22 -9 -22 4 c 0 10 14 16 22 23 c 8 -7 22 -13 22 -23 c 0 -13 -16 -14 -22 -4 z" fill="#F2A33A" />
+              <rect x="222" y="410" width="80" height="26" rx="13" fill="#fff" />
+              <text x="262" y="428" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="800" fill="#1E1B2E">Amma · Pune</text>
+            </g>
+            <g font-family="Plus Jakarta Sans, sans-serif" text-anchor="middle">
+              <g class="float">
+                <circle cx="92" cy="96" r="30" fill="#fff" /><circle cx="92" cy="96" r="25" fill="#0E4D5C" />
+                <text x="92" y="103" font-size="20" font-weight="800" fill="#fff">P</text>
+                <rect x="42" y="134" width="100" height="24" rx="12" fill="#fff" /><text x="92" y="151" font-size="12" font-weight="700" fill="#4A4560">Priya · Toronto</text>
+              </g>
+              <g class="float d2">
+                <circle cx="260" cy="48" r="30" fill="#fff" /><circle cx="260" cy="48" r="25" fill="#B5452F" />
+                <text x="260" y="55" font-size="20" font-weight="800" fill="#fff">A</text>
+                <rect x="214" y="86" width="92" height="24" rx="12" fill="#fff" /><text x="260" y="103" font-size="12" font-weight="700" fill="#4A4560">Arjun · Dubai</text>
+              </g>
+              <g class="float d3">
+                <circle cx="430" cy="96" r="30" fill="#fff" /><circle cx="430" cy="96" r="25" fill="#5A3A8C" />
+                <text x="430" y="103" font-size="20" font-weight="800" fill="#fff">M</text>
+                <rect x="380" y="134" width="100" height="24" rx="12" fill="#fff" /><text x="430" y="151" font-size="12" font-weight="700" fill="#4A4560">Meera · London</text>
+              </g>
+            </g>
+          </svg>
+          <div class="toast-stack" id="heroToasts"></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="problem">
+      <div class="wrap">
+        <div class="center" style="max-width: 760px">
+          <div class="eyebrow reveal" data-i18n="prob_eyebrow"></div>
+          <h2 class="h2 reveal d1" data-i18n="prob_h2"></h2>
+          <p class="sub center reveal d2" data-i18n="prob_sub"></p>
+        </div>
+        <div class="pain-grid">
+          <article class="pain reveal">
+            <img src="assets/scattered.svg" alt="" loading="lazy" />
+            <h3 data-i18n="pain1_t"></h3>
+            <p data-i18n="pain1_p"></p>
+          </article>
+          <article class="pain reveal d1">
+            <img src="assets/alone.svg" alt="" loading="lazy" />
+            <h3 data-i18n="pain2_t"></h3>
+            <p data-i18n="pain2_p"></p>
+          </article>
+          <article class="pain reveal d2">
+            <img src="assets/hidden.svg" alt="" loading="lazy" />
+            <h3 data-i18n="pain3_t"></h3>
+            <p data-i18n="pain3_p"></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how" style="padding-top: 0">
+      <div class="wrap">
+        <div class="band">
+          <div class="steps">
+            <div>
+              <div class="eyebrow" style="color: var(--marigold)" data-i18n="how_eyebrow"></div>
+              <h2 class="h2" style="color: #fff" data-i18n="how_h2"></h2>
+              <ol class="step-list" id="stepList">
+                <li class="on"><span class="step-num">1</span><div><b data-i18n="step1_t"></b><span data-i18n="step1_p"></span></div></li>
+                <li><span class="step-num">2</span><div><b data-i18n="step2_t"></b><span data-i18n="step2_p"></span></div></li>
+                <li><span class="step-num">3</span><div><b data-i18n="step3_t"></b><span data-i18n="step3_p"></span></div></li>
+                <li><span class="step-num">4</span><div><b data-i18n="step4_t"></b><span data-i18n="step4_p"></span></div></li>
+              </ol>
+            </div>
+            <div class="demo-card" id="demoCard" aria-live="polite">
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap">
+                <span class="pill pill-gold" data-i18n="demo_purpose"></span>
+                <span style="font-size: 13px; color: var(--soft); font-weight: 700" data-i18n="demo_pot"></span>
+              </div>
+              <div class="amt">₹2,400</div>
+              <div style="color: var(--muted); font-size: 14px" data-i18n-html="demo_to"></div>
+              <div class="meter" id="demoMeter"><i></i></div>
+              <div style="font-size: 13px; color: var(--soft); font-weight: 700" id="demoCount"></div>
+              <div style="margin-top: 10px">
+                <div class="demo-row"><span class="avatar sm" style="--c:#0E4D5C">P</span><span class="who">Priya</span><span class="state"></span></div>
+                <div class="demo-row"><span class="avatar sm" style="--c:#B5452F">A</span><span class="who">Arjun</span><span class="state"></span></div>
+                <div class="demo-row"><span class="avatar sm" style="--c:#5A3A8C">M</span><span class="who">Meera</span><span class="state"></span></div>
+              </div>
+              <div class="demo-status" id="demoStatus"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="uses" style="padding-top: 0">
+      <div class="wrap">
+        <div class="center" style="max-width: 760px">
+          <div class="eyebrow reveal" data-i18n="uses_eyebrow"></div>
+          <h2 class="h2 reveal d1" data-i18n="uses_h2"></h2>
+          <p class="sub center reveal d2" data-i18n="uses_sub"></p>
+        </div>
+        <div class="use-grid">
+          <article class="use reveal"><img src="assets/use-medicine.svg" alt="" loading="lazy" /><h3 data-i18n="use1_t"></h3><p data-i18n="use1_p"></p></article>
+          <article class="use reveal d1"><img src="assets/use-hospital.svg" alt="" loading="lazy" /><h3 data-i18n="use2_t"></h3><p data-i18n="use2_p"></p></article>
+          <article class="use reveal d2"><img src="assets/use-groceries.svg" alt="" loading="lazy" /><h3 data-i18n="use3_t"></h3><p data-i18n="use3_p"></p></article>
+          <article class="use reveal d3"><img src="assets/use-home.svg" alt="" loading="lazy" /><h3 data-i18n="use4_t"></h3><p data-i18n="use4_p"></p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="compare" style="padding-top: 0">
+      <div class="wrap">
+        <div class="center" style="max-width: 760px">
+          <div class="eyebrow reveal" data-i18n="cmp_eyebrow"></div>
+          <h2 class="h2 reveal d1" data-i18n="cmp_h2"></h2>
+          <p class="sub center reveal d2" data-i18n="cmp_sub"></p>
+        </div>
+        <div class="table-scroll reveal">
+          <table class="compare">
+            <thead><tr><th></th><th data-i18n="cmp_c1"></th><th data-i18n="cmp_c2"></th><th data-i18n="cmp_c3"></th><th data-i18n="cmp_c4"></th></tr></thead>
+            <tbody>
+              <tr><td data-i18n="cmp_r1"></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
+              <tr><td data-i18n="cmp_r2"></td><td><span class="meh">~</span> <span data-i18n="cmp_2people"></span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="meh">~</span></td></tr>
+              <tr><td data-i18n="cmp_r3"></td><td><span class="no">✕</span> <span data-i18n="cmp_samecountry"></span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="yes">✓</span></td></tr>
+              <tr><td data-i18n="cmp_r4"></td><td><span class="yes">✓</span></td><td><span class="no">✕</span> <span data-i18n="cmp_noholding"></span></td><td><span class="no">✕</span></td><td><span class="meh">~</span> <span data-i18n="cmp_self"></span></td></tr>
+              <tr class="us"><td data-i18n="cmp_r5"></td><td><span class="yes">✓</span> <span data-i18n="cmp_any"></span></td><td><span class="yes">✓</span> <span data-i18n="cmp_mofn"></span></td><td><span class="yes">✓</span> <span data-i18n="cmp_multisig"></span></td><td><span class="yes">✓</span> <span data-i18n="cmp_ledger"></span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="trust" style="padding-top: 0">
+      <div class="wrap trust-grid">
+        <div>
+          <div class="eyebrow reveal" data-i18n="safe_eyebrow"></div>
+          <h2 class="h2 reveal d1" data-i18n="safe_h2"></h2>
+          <p class="sub reveal d2" data-i18n="safe_sub"></p>
+          <div class="fact-list">
+            <div class="fact reveal"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /></svg></span><div><b data-i18n="fact1_t"></b><span data-i18n="fact1_p"></span></div></div>
+            <div class="fact reveal d1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3" /><circle cx="17" cy="9" r="2.5" /><path d="M3 20c0-3 3-5 6-5s6 2 6 5M15 15c3 0 6 1.5 6 4.5" /></svg></span><div><b data-i18n="fact2_t"></b><span data-i18n="fact2_p"></span></div></div>
+            <div class="fact reveal d2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" /><circle cx="12" cy="12" r="3" /></svg></span><div><b data-i18n="fact3_t"></b><span data-i18n="fact3_p"></span></div></div>
+          </div>
+        </div>
+        <div class="reveal d1">
+          <svg viewBox="0 0 440 400" aria-hidden="true">
+            <defs><linearGradient id="tv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E4D5C" /><stop offset="1" stop-color="#3B2A6B" /></linearGradient></defs>
+            <rect x="120" y="150" width="200" height="140" rx="28" fill="url(#tv)" />
+            <circle cx="220" cy="220" r="38" fill="none" stroke="#F2A33A" stroke-width="5" />
+            <circle cx="220" cy="220" r="10" fill="#F2A33A" />
+            <path d="M220 230 v18" stroke="#F2A33A" stroke-width="6" stroke-linecap="round" />
+            <text x="220" y="318" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="800" fill="#1E1B2E" data-i18n="diag_pot"></text>
+            <g font-family="Plus Jakarta Sans, sans-serif" font-weight="800" text-anchor="middle">
+              <path d="M70 70 L170 160" stroke="#1B6B45" stroke-width="4" stroke-dasharray="6 8" class="flow" />
+              <path d="M220 50 L220 150" stroke="#1B6B45" stroke-width="4" stroke-dasharray="6 8" class="flow" />
+              <path d="M370 70 L270 160" stroke="#C9C1B4" stroke-width="4" stroke-dasharray="6 8" />
+              <circle cx="60" cy="60" r="30" fill="#0E4D5C" /><text x="60" y="67" fill="#fff" font-size="20">P</text>
+              <circle cx="220" cy="36" r="30" fill="#B5452F" /><text x="220" y="43" fill="#fff" font-size="20">A</text>
+              <circle cx="380" cy="60" r="30" fill="#5A3A8C" opacity=".55" /><text x="380" y="67" fill="#fff" font-size="20">M</text>
+              <circle cx="84" cy="84" r="11" fill="#1B6B45" stroke="#fff" stroke-width="3" /><path d="M79 84 l4 4 l7 -7" stroke="#fff" stroke-width="2.5" fill="none" />
+              <circle cx="244" cy="60" r="11" fill="#1B6B45" stroke="#fff" stroke-width="3" /><path d="M239 60 l4 4 l7 -7" stroke="#fff" stroke-width="2.5" fill="none" />
+            </g>
+            <g transform="translate(220 360)">
+              <rect x="-130" y="-18" width="260" height="36" rx="18" fill="#FCE6E6" />
+              <text x="0" y="6" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="800" fill="#A3262A" data-i18n="diag_off"></text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="download" style="padding-top: 0">
+      <div class="wrap">
+        <div class="dl">
+          <div class="dl-copy">
+            <div class="eyebrow reveal" data-i18n="dl_eyebrow"></div>
+            <h2 class="h2 reveal d1" data-i18n="dl_h2"></h2>
+            <p class="sub reveal d2" data-i18n="dl_sub"></p>
+            <div class="dl-langs reveal d2"><span>English</span><span>हिन्दी</span><span>தமிழ்</span></div>
+
+            <div class="dl-card reveal">
+              <div class="dl-icon"><img src="assets/icon-192.png" alt="" /></div>
+              <div style="flex: 1; min-width: 0">
+                <b data-i18n="dl_install_t"></b>
+                <p data-i18n="dl_install_p"></p>
+              </div>
+              <button class="btn btn-accent" id="installBtn" data-act="install" data-i18n="dl_install_btn">Install RELAY</button>
+              <span class="pill pill-ok" id="installedPill" hidden data-i18n="dl_installed"></span>
+            </div>
+
+            <div class="dl-steps reveal d1">
+              <div class="dl-step"><span class="os" aria-hidden="true">🤖</span><div><b data-i18n="dl_android_t"></b><span data-i18n="dl_android_p"></span></div></div>
+              <div class="dl-step"><span class="os" aria-hidden="true">📱</span><div><b data-i18n="dl_ios_t"></b><span data-i18n="dl_ios_p"></span></div></div>
+            </div>
+
+            <div class="dl-row reveal d2">
+              <div class="dl-qr"><div id="siteQr" aria-hidden="true"></div><div><b data-i18n="dl_scan_t"></b><span data-i18n="dl_scan_p"></span></div></div>
+              <div class="dl-stores">
+                <b data-i18n="dl_store_t"></b>
+                <p data-i18n="dl_store_p"></p>
+                <div class="store-badges">
+                  <span class="store" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2-1.1 2.8-2.3.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-.9-2.5-3.8zM14.1 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z"/></svg><span>App Store</span><em data-i18n="dl_soon"></em></span>
+                  <span class="store" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 3.5v17c0 .3.3.5.6.4l9.8-8.9L4.6 3.1c-.3-.1-.6.1-.6.4zm11.6 7.6 2.8-2.5-11.4-6.4 8.6 8.9zm0 1.8-8.6 8.9 11.4-6.4-2.8-2.5zm4.4-2.2-2.6-1.5-3 2.8 3 2.8 2.6-1.5c.8-.5.8-2.1 0-2.6z"/></svg><span>Google Play</span><em data-i18n="dl_soon"></em></span>
+                </div>
+                <a class="btn btn-text btn-sm" href="https://github.com/hasini2k8/Relay" target="_blank" rel="noopener" data-i18n="dl_source"></a>
+              </div>
+            </div>
+          </div>
+          <div class="dl-art reveal d1">
+            <img class="phone" src="assets/phone.svg" alt="" />
+            <img class="amma" src="assets/amma.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0">
+      <div class="wrap">
+        <div class="band cta-band">
+          <img src="assets/amma.svg" alt="" class="cta-amma" />
+          <h2 data-i18n="cta_h2"></h2>
+          <p data-i18n="cta_p"></p>
+          <a class="btn btn-accent btn-lg" href="#/app?demo=1" data-i18n="cta_btn"></a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <a class="brand" href="#/"><img src="assets/logo.svg" alt="" />RELAY</a>
+        <span data-i18n="footer"></span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ================= APP ================= -->
+  <div id="appRoot" hidden></div>
+
+  <dialog class="modal" id="modal"></dialog>
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

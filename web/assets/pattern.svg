@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <!-- rangoli-style motif, tiled as a faint texture -->
+  <g fill="none" stroke="#ffffff" stroke-width="1.4">
+    <circle cx="40" cy="40" r="10"/>
+    <path d="M40 22 Q48 31 40 40 Q32 31 40 22Z M40 58 Q48 49 40 40 Q32 49 40 58Z M22 40 Q31 32 40 40 Q31 48 22 40Z M58 40 Q49 32 40 40 Q49 48 58 40Z"/>
+    <circle cx="0" cy="0" r="6"/><circle cx="80" cy="0" r="6"/><circle cx="0" cy="80" r="6"/><circle cx="80" cy="80" r="6"/>
+  </g>
+  <g fill="#ffffff"><circle cx="40" cy="40" r="2.4"/><circle cx="40" cy="8" r="1.6"/><circle cx="40" cy="72" r="1.6"/><circle cx="8" cy="40" r="1.6"/><circle cx="72" cy="40" r="1.6"/></g>
+</svg>

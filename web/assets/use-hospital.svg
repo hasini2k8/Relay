@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="A hospital building with a heartbeat line and a clock showing different time zones">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCE6E6"/><stop offset="1" stop-color="#FDEBD0"/></linearGradient>
+  </defs>
+  <rect width="240" height="180" rx="24" fill="url(#bg)"/>
+  <rect x="58" y="44" width="124" height="112" rx="8" fill="#fff"/>
+  <rect x="94" y="22" width="52" height="34" rx="8" fill="#fff"/>
+  <path d="M120 28v22M109 39h22" stroke="#E5604D" stroke-width="7" stroke-linecap="round"/>
+  <g fill="#DDEEF0">
+    <rect x="72" y="62" width="22" height="18" rx="3"/><rect x="109" y="62" width="22" height="18" rx="3"/><rect x="146" y="62" width="22" height="18" rx="3"/>
+    <rect x="72" y="90" width="22" height="18" rx="3"/><rect x="109" y="90" width="22" height="18" rx="3"/><rect x="146" y="90" width="22" height="18" rx="3"/>
+  </g>
+  <rect x="106" y="120" width="28" height="36" rx="4" fill="#0E4D5C"/>
+  <path d="M18 132h40l8-14 10 26 8-12h12" stroke="#E5604D" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- clock -->
+  <circle cx="198" cy="48" r="24" fill="#fff" stroke="#3B2A6B" stroke-width="3"/>
+  <path d="M198 34v14l10 6" stroke="#3B2A6B" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <text x="198" y="88" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="800" fill="#3B2A6B">3 AM Toronto</text>
+</svg>

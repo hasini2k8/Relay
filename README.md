@@ -8,6 +8,25 @@ A mobile wallet (iOS, Android, web) on the **Stellar** network for brothers and 
 
 **Live (Stellar testnet):** [hasini2k8.github.io/Relay](https://hasini2k8.github.io/Relay/) · [relay-wallet.vercel.app](https://relay-wallet.vercel.app)
 
+**Family dashboard (web):** [relay-family-pots.vercel.app](https://relay-family-pots.vercel.app) · [live demo family](https://relay-family-pots.vercel.app/#/app?demo=1)
+
+## What's new (November 2026)
+
+**A separate web app, [`web/`](web/).** It's a family dashboard built around the Care Pot, with no build step (plain HTML, CSS and ES modules, with the Stellar SDK from a CDN):
+- An animated landing page with hand-drawn SVG illustrations: the problem, how approval works, what it pays for, a comparison, and why it's safe.
+- The dashboard shows the pot balance and a contribution donut. **Fair share** bars show who is above or below an even split, and spending is grouped **by purpose**. A care timeline shows who approved each payment, with proof links.
+- **Live demo family:** one click creates Priya, Arjun and Meera on testnet, opens a 2-of-3 pot, pays in, pays a pharmacy and leaves a request waiting. You switch between siblings and approve it. Every step is a real transaction.
+- **English, हिन्दी, தமிழ்** across the UI, errors and read-aloud ([`web/js/i18n.js`](web/js/i18n.js)).
+- **Installable:** a web-app manifest, a service worker for offline use, an "Install RELAY" button, and a QR code to open it on a phone.
+- **Easier to use:** a getting-started checklist, a "what does 2 of 3 mean?" explainer, a text-size control, amounts typed in ₹, a paste button, and an "Invite family" flow over WhatsApp.
+- It uses the same on-chain format as `src/pot.ts`, so pots made in the phone app open on the web and the other way round.
+- To run it locally, serve `web/` with any static server (e.g. `npx serve web`). To deploy, use `npx vercel deploy --prod --cwd web`.
+
+**Redesigned mobile app.** The Stellar logic is unchanged:
+- New design system in `src/ui.tsx`: warm teal, marigold and plum, gradient cards, soft shadows, and motion using React Native's own `Animated` (fade-ups, press-scale, progress rings and bars, confetti). It respects the phone's reduce-motion setting.
+- SVG illustrations in `src/art.tsx`. Redesigned Welcome, Home (pots first) and Pot screens, including fair share, spending by purpose, an approval timeline and an approval ring on requests.
+- No new dependencies. Type-checks with `tsc --noEmit`, and `expo export --platform web` builds.
+
 **Report:** [REPORT.md](REPORT.md) covers the problem, a comparison with current remittance apps, what is unique, test results and limits.
 
 ## The problem

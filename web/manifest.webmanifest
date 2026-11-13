@@ -1,0 +1,21 @@
+{
+  "name": "RELAY · Family Care Pots",
+  "short_name": "RELAY",
+  "description": "Siblings abroad pool money for a parent back home. No one can spend it alone.",
+  "start_url": "./#/app",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FBF6EF",
+  "theme_color": "#0E4D5C",
+  "lang": "en",
+  "categories": ["finance", "lifestyle"],
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    { "src": "assets/phone.svg", "sizes": "300x600", "type": "image/svg+xml", "form_factor": "narrow", "label": "Family pot on a phone" }
+  ]
+}

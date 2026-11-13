@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="A family chat full of questions about who paid for what">
+  <defs>
+    <radialGradient id="g" cx=".5" cy=".55" r=".55"><stop offset="0" stop-color="#2E8BA0" stop-opacity=".2"/><stop offset="1" stop-color="#2E8BA0" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#g)"/>
+  <g font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700">
+    <rect x="40" y="26" width="168" height="38" rx="14" fill="#fff" stroke="#E8DFD3"/>
+    <circle cx="58" cy="45" r="10" fill="#0E4D5C"/>
+    <text x="76" y="49" fill="#1E1B2E">Who paid the hospital?</text>
+    <rect x="112" y="78" width="168" height="38" rx="14" fill="#DDEEF0"/>
+    <circle cx="262" cy="97" r="10" fill="#B5452F"/>
+    <text x="124" y="101" fill="#1E1B2E">I sent ₹8k last month…</text>
+    <rect x="40" y="130" width="176" height="38" rx="14" fill="#fff" stroke="#E8DFD3"/>
+    <circle cx="58" cy="149" r="10" fill="#5A3A8C"/>
+    <text x="76" y="153" fill="#1E1B2E">Was that for medicine?</text>
+  </g>
+  <g transform="translate(248 140)">
+    <circle r="22" fill="#FDEBD0" stroke="#F2A33A" stroke-width="3"/>
+    <path d="M-11 0 Q0 -10 11 0 Q0 10 -11 0Z" fill="none" stroke="#7A4A00" stroke-width="2.5"/>
+    <path d="M-12 10 L12 -10" stroke="#7A4A00" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+</svg>

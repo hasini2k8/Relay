@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 320" role="img" aria-label="An elderly mother at home holding a phone, smiling, with a video call from her three children">
+  <defs>
+    <radialGradient id="glow" cx=".5" cy=".45" r=".6"><stop offset="0" stop-color="#F2A33A" stop-opacity=".45"/><stop offset="1" stop-color="#F2A33A" stop-opacity="0"/></radialGradient>
+    <linearGradient id="saree" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E5604D"/><stop offset="1" stop-color="#B5452F"/></linearGradient>
+  </defs>
+  <circle cx="180" cy="150" r="150" fill="url(#glow)"/>
+  <!-- window -->
+  <rect x="34" y="40" width="90" height="110" rx="45" fill="#FFF8EC" stroke="#E8DFD3" stroke-width="3"/>
+  <path d="M79 40v110M34 95h90" stroke="#E8DFD3" stroke-width="3"/>
+  <circle cx="100" cy="70" r="12" fill="#F2A33A" opacity=".8"/>
+  <!-- marigold garland -->
+  <g fill="#F2A33A">
+    <circle cx="150" cy="22" r="7"/><circle cx="166" cy="28" r="7"/><circle cx="182" cy="31" r="7"/><circle cx="198" cy="31" r="7"/><circle cx="214" cy="28" r="7"/><circle cx="230" cy="22" r="7"/>
+  </g>
+  <g fill="#E5604D"><circle cx="158" cy="26" r="4"/><circle cx="190" cy="32" r="4"/><circle cx="222" cy="26" r="4"/></g>
+  <!-- chair -->
+  <rect x="112" y="150" width="140" height="150" rx="40" fill="#0E4D5C"/>
+  <!-- body -->
+  <path d="M120 300c0-70 26-112 62-112s62 42 62 112z" fill="url(#saree)"/>
+  <path d="M150 210c20 30 40 50 80 70" stroke="#F2A33A" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <!-- head -->
+  <ellipse cx="182" cy="160" rx="20" ry="8" fill="#8A5A3C"/>
+  <circle cx="182" cy="128" r="36" fill="#A86F4C"/>
+  <path d="M146 124c0-30 18-44 36-44s36 14 36 44c-8-16-22-24-36-24s-28 8-36 24z" fill="#D9D4CC"/>
+  <circle cx="218" cy="102" r="14" fill="#D9D4CC"/>
+  <circle cx="182" cy="114" r="3" fill="#E5604D"/>
+  <!-- glasses -->
+  <g fill="none" stroke="#1E1B2E" stroke-width="2.5"><circle cx="169" cy="130" r="9"/><circle cx="195" cy="130" r="9"/><path d="M178 130h8"/></g>
+  <path d="M170 148q12 9 24 0" stroke="#5A2E1E" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- hands + phone -->
+  <rect x="196" y="196" width="46" height="78" rx="9" fill="#1E1B2E" transform="rotate(-12 219 235)"/>
+  <rect x="201" y="204" width="36" height="58" rx="5" fill="#FDEBD0" transform="rotate(-12 219 235)"/>
+  <g transform="rotate(-12 219 235)">
+    <circle cx="210" cy="218" r="6" fill="#0E4D5C"/><circle cx="226" cy="218" r="6" fill="#B5452F"/><circle cx="218" cy="234" r="6" fill="#5A3A8C"/>
+    <path d="M211 249h16" stroke="#F2A33A" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <ellipse cx="206" cy="262" rx="14" ry="10" fill="#A86F4C"/>
+  <!-- hearts -->
+  <path d="M276 92c-3-6-13-5-13 2 0 6 8 10 13 14 5-4 13-8 13-14 0-7-10-8-13-2z" fill="#E5604D"/>
+  <path d="M300 140c-2-4-9-3-9 1 0 4 6 7 9 9 3-2 9-5 9-9 0-4-7-5-9-1z" fill="#F2A33A"/>
+</svg>

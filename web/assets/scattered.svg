@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Money sent separately by three siblings, with no shared record">
+  <defs>
+    <radialGradient id="g" cx=".5" cy=".55" r=".55"><stop offset="0" stop-color="#F2A33A" stop-opacity=".28"/><stop offset="1" stop-color="#F2A33A" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#g)"/>
+  <g font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="15" fill="#fff" text-anchor="middle">
+    <circle cx="48" cy="44" r="22" fill="#0E4D5C"/><text x="48" y="50">P</text>
+    <circle cx="272" cy="44" r="22" fill="#5A3A8C"/><text x="272" y="50">M</text>
+    <circle cx="48" cy="156" r="22" fill="#B5452F"/><text x="48" y="162">A</text>
+  </g>
+  <g fill="none" stroke-width="3" stroke-linecap="round" stroke-dasharray="3 8">
+    <path d="M70 50 C130 20 140 140 168 104" stroke="#0E4D5C"/>
+    <path d="M250 52 C200 30 230 150 176 108" stroke="#5A3A8C"/>
+    <path d="M70 150 C120 180 100 60 160 98" stroke="#B5452F"/>
+  </g>
+  <g>
+    <rect x="186" y="128" width="40" height="50" rx="5" fill="#fff" stroke="#E8DFD3" transform="rotate(12 206 153)"/>
+    <rect x="96" y="128" width="40" height="50" rx="5" fill="#fff" stroke="#E8DFD3" transform="rotate(-14 116 153)"/>
+    <g stroke="#E8DFD3" stroke-width="3" stroke-linecap="round"><path d="M194 140h22M194 150h16M194 160h20" transform="rotate(12 206 153)"/><path d="M104 140h22M104 150h16M104 160h20" transform="rotate(-14 116 153)"/></g>
+  </g>
+  <circle cx="168" cy="100" r="26" fill="#FDEBD0" stroke="#F2A33A" stroke-width="3"/>
+  <text x="168" y="111" font-family="Fraunces, serif" font-size="30" font-weight="700" fill="#7A4A00" text-anchor="middle">?</text>
+</svg>

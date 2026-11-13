@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="One person holding all the family money, with a scammer reaching for it">
+  <defs>
+    <radialGradient id="g" cx=".5" cy=".55" r=".55"><stop offset="0" stop-color="#E5604D" stop-opacity=".22"/><stop offset="1" stop-color="#E5604D" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#g)"/>
+  <ellipse cx="150" cy="176" rx="46" ry="6" fill="#1E1B2E" opacity=".08"/>
+  <path d="M110 88 C104 106 104 150 118 166 C130 174 170 174 182 166 C196 150 196 106 190 88 Z" fill="#FDEBD0" stroke="#F2A33A" stroke-width="3"/>
+  <rect x="106" y="78" width="88" height="14" rx="7" fill="#F2A33A"/>
+  <g fill="#F2A33A" stroke="#C27A12" stroke-width="1.5"><circle cx="138" cy="146" r="9"/><circle cx="158" cy="150" r="9"/><circle cx="148" cy="132" r="9"/></g>
+  <circle cx="72" cy="104" r="22" fill="#0E4D5C"/>
+  <text x="72" y="110" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="15" fill="#fff" text-anchor="middle">1</text>
+  <path d="M94 110 Q104 112 110 118" stroke="#0E4D5C" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <g transform="translate(232 54) rotate(10)">
+    <rect width="54" height="92" rx="10" fill="#1E1B2E"/>
+    <rect x="5" y="10" width="44" height="66" rx="4" fill="#FCE6E6"/>
+    <path d="M14 26h26M14 36h20M14 46h24" stroke="#A3262A" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="27" cy="62" r="7" fill="#A3262A"/><text x="27" y="66.5" font-family="sans-serif" font-size="11" font-weight="800" fill="#fff" text-anchor="middle">!</text>
+  </g>
+  <path d="M228 104 C214 108 204 108 194 104" stroke="#A3262A" stroke-width="3" stroke-dasharray="4 6" stroke-linecap="round" fill="none"/>
+</svg>

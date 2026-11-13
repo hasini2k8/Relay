@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="A basket of vegetables, milk and rice from the local store">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FDEBD0"/><stop offset="1" stop-color="#FFF1D6"/></linearGradient>
+  </defs>
+  <rect width="240" height="180" rx="24" fill="url(#bg)"/>
+  <!-- awning -->
+  <path d="M20 20h200v22H20z" fill="#E5604D"/>
+  <g fill="#fff"><path d="M40 20h20v22H40zM80 20h20v22H80zM120 20h20v22h-20zM160 20h20v22h-20zM200 20h20v22h-20z"/></g>
+  <path d="M20 42q10 12 20 0q10 12 20 0q10 12 20 0q10 12 20 0q10 12 20 0q10 12 20 0q10 12 20 0q10 12 20 0q10 12 20 0q10 12 20 0" fill="#E5604D"/>
+  <!-- produce -->
+  <circle cx="86" cy="94" r="16" fill="#E5604D"/>
+  <path d="M86 78q4 -8 10 -6" stroke="#2F6B2F" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <ellipse cx="116" cy="88" rx="12" ry="20" fill="#2F6B2F" transform="rotate(20 116 88)"/>
+  <circle cx="146" cy="96" r="14" fill="#F2A33A"/>
+  <rect x="160" y="64" width="26" height="44" rx="6" fill="#fff" stroke="#2E8BA0" stroke-width="3"/>
+  <rect x="160" y="78" width="26" height="12" fill="#2E8BA0"/>
+  <path d="M50 74l14 6v34H50z" fill="#F6E3C8" stroke="#C9A97A" stroke-width="2"/>
+  <!-- basket -->
+  <path d="M40 108h160l-14 52H54z" fill="#C27A12"/>
+  <g stroke="#8A4B00" stroke-width="3"><path d="M50 122h140M56 138h128M62 152h116"/><path d="M80 108l-4 52M110 108v52M140 108l2 52M170 108l6 52"/></g>
+</svg>
